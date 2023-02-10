@@ -1,0 +1,22 @@
+﻿@using KeysShop.Repository.Dto
+
+@model KeyCreateDto
+@{
+
+    Layout = "~/Views/Shared/_BreezeLayout.cshtml";
+}
+<div class="content-wrapper pb-0 text-center">
+
+
+<h1>Підтвердіть видалення ключа?</h1>
+<hr />
+
+<p>@Model.Name</p>
+
+<hr />
+<form asp-action="ConfirmDelete" class="col-md-4">
+    @Html.AntiForgeryToken()
+    <input asp-for="Id" type="hidden" />
+    <button type="submit" class="btn btn-warning">Видалити користувача!!!</button>
+    <a href="/users/index" class="btn btn-outline-dark">Повернутися до списку / Відмінити</a>
+</form></div>
