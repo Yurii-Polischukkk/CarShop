@@ -1,0 +1,111 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_BreezeLayout.cshtml";
+    double? totalsum = 0;
+}
+
+@using CarMarket.Repos;
+@using CarMarket.Core;
+@inject IHttpContextAccessor Accessor
+
+
+
+
+<section class="vh-100" style="background-color: #74a6d0;">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <p><span class="h2">Cart Page </span><span class="h4"></span></p>
+
+                <div class="card mb-4">
+                    <div class="card-body p-4">
+                        @if(@Accessor.HttpContext.Session.GetObject<List<CartItem>>("cart")!=null)
+                        @foreach (CartItem item in Accessor.HttpContext.Session.GetObject<List<CartItem>>("cart"))
+                        {
+
+                                    <div class="row align-items-center">
+                                        <div class="col-md-2">
+                                                <img src="@item.Car.ImgPath"
+                                         class="img-fluid" alt="Generic placeholder image">
+                                        </div>
+                                    <div class="col-md-2 d-flex justify-content-center">
+                                        <div>
+                                            <p class="small text-muted mb-4 pb-2">Id</p>
+                                            <p class="lead fw-normal mb-0">
+                                                <td>@item.Car.Id</td>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 d-flex justify-content-center">
+                                        <div>
+                                            <p class="small text-muted mb-4 pb-2">Name</p>
+                                            <p class="lead fw-normal mb-0"><td>@item.Car.Name</td></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 d-flex justify-content-center">
+                                        <div>
+                                            <p class="small text-muted mb-4 pb-2">Price</p>
+                                            <p class="lead fw-normal mb-0"> <td>@item.Car.Price</td></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 d-flex justify-content-center">
+                                        <div>
+                                            <p class="small text-muted mb-4 pb-2">Quantity</p>
+                                            @*<p class="lead fw-normal mb-0"><td>@item.Quantity</td></p>*@
+                                        <div class="d-flex mb-4" style="max-width: 300px">
+                                                    
+                                            <button class="btn btn-link px-2 decreasekey" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                <i class="fas fa-minus">-</i>
+                                            </button>
+
+                                            <input class="hiddenInput" type="hidden" value="@item.Id"/>
+
+                                                    <input id="form1"  min="1" name="quantity" value="@item.Quantity" type="number" class="form-control form-control-sm quantityInput">
+                                            
+                                            <button class="btn btn-link px-2 increasekey" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                           
+                                                <i class="fas fa-plus">+</i>
+                                            </button>
+                                        </div>
+                                    </div>
+ 
+                                        
+                                    </div>
+                                    <div class="col-md-2 d-flex justify-content-center">
+                                    <a class="btn btn-primary" asp-controller="Cart" asp-action="Remove" asp-route-id="@item.Car.Id">Видалити</a>
+                                    </div>
+
+
+                            </div>      
+                        }
+
+                        </div>
+                        </div>                
+                <div class="card mb-5">
+                    <div class="card-body p-4">
+                        @if (@Accessor.HttpContext.Session.GetObject<List<CartItem>>("cart") != null)
+                        @foreach (CartItem item in Accessor.HttpContext.Session.GetObject<List<CartItem>>("cart"))
+                        {
+                                    <span type="hidden" style="font-size: 0; position:absolute">@(@totalsum
+                                      += @item.Car.Price * @item.Quantity)</span>
+                        }
+                        <div class="float-end">
+                            <p class="mb-0 me-5 d-flex align-items-center">
+                                 <span class="lead fw-normal totalsum"><td>Сума замовлення: @totalsum</td></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="d-flex justify-content-end">
+
+                    <a type="button" class="btn btn-light btn-lg me-2" asp-controller="Key" asp-action="Index">Continue Shopping</a>
+                    <a type="button" class="btn btn-primary btn-lg" asp-controller="Order" asp-action="Checkout">Замовити</a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
