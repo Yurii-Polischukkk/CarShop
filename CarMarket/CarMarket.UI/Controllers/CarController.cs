@@ -34,6 +34,7 @@ namespace CarMarket.UI.Controllers
         public IActionResult Create()
         {
             ViewBag.Brands = brandsRepository.GetBrands();
+            ViewBag.Models = modelsRepository.GetModels();
             return View();
         }
 
