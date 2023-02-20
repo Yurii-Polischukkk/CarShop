@@ -1,10 +1,11 @@
-﻿@model CarMarket.Core.Model
+﻿@using CarMarket.Core
+@model CarMarket.Core.Model
 @{
-   
+    var brands = ViewBag.Brands as IEnumerable<Brand>;
     Layout = "~/Views/Shared/_BreezeLayout.cshtml";
 }
 <div class="content-wrapper pb-0 text-center">
-<h4>Brand</h4>
+<h4>Model</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,7 +21,20 @@
                 <label asp-for="Description" class="control-label"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
+            </div>              
+                        <div class="form-group row">
+                            <div class="mb-3">
+                                <label class="form-label"> </label>
+                            </div>
+                            <label class="col-sm-3 col-form-label" asp-for="Brand"></label>
+
+                                <select class="form-select" size="3" id="brands" name="brands">
+                                    @foreach (var b in brands)
+                                    {
+                                        <option value="@b.Name">@b.Name</option>
+                                    }
+                                </select>
+                                </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

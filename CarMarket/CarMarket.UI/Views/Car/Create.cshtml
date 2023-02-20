@@ -43,7 +43,7 @@
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <div class="mb-3">
-                                    <label class="form-label" </label>
+                                    <label class="form-label"> </label>
                                 </div>
                                 <label class="col-sm-3 col-form-label" asp-for="Brand"></label>
                                 <div class="col-sm-9">
@@ -59,14 +59,14 @@
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <div class="mb-3">
-                                        <label class="form-label" </label>
+                                        <label class="form-label"> </label>
                                     </div>
                                     <label class="col-sm-3 col-form-label" asp-for="Model"></label>
                                     <div class="col-sm-9">
                                         <select class="form-select" size="3" id="models" name="models">
-                                            @foreach (var b in models)
+                                            @foreach (var m in models)
                                             {
-                                                <option value="@b.Name">@b.Name</option>
+                                                <option value="@m.Name">@m.Name</option>
                                             }
                                         </select>
                                     </div>
@@ -77,7 +77,7 @@
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <div class="form-group">
-                                        <label class="control-label" </label>
+                                        <label class="control-label"> </label>
 
                                     </div>
                                     <label class="col-sm-3 col-form-label" asp-for="Price"></label>
@@ -90,7 +90,7 @@
                         <div class="col-md-6">
                             <div class="form-group row">
                                 <div class="form-group">
-                                    <label class="control-label" </label>
+                                    <label class="control-label"> </label>
                                         </div>
                                 <label class="col-sm-3 col-form-label" asp-for="Color"></label>
                                 <div class="col-sm-9">
@@ -105,8 +105,7 @@
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <div class="form-group">
-                                        <label class="control-label" </label>
-
+                                        <label class="control-label"> </label>
                                     </div>
                                     <label class="" col-sm-3 col-form-label" asp-for="ImgPath"></label>
                                     <div class="col-sm-9">
