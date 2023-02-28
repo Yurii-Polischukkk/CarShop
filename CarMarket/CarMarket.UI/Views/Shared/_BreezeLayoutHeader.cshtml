@@ -1,12 +1,11 @@
 ﻿<div class="container-scroller">
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
-            <a class="sidebar-brand brand-logo" href="index.html"><span class="menu-title">KeysSHOP</span></a>
-            <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="#"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+            <a class="sidebar-brand brand-logo" href="index.html"><span class="menu-title">CarsMARKET</span></a>
+            <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="https://localhost:7256/"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
         <br />
-        <ul class="nav">
-           
+        <ul class="nav">         
             <li class="nav-item">
                 <a class="nav-link" href="https://localhost:7256/">
                     <i class="mdi mdi-home menu-icon"></i>
@@ -130,9 +129,9 @@
                         </div>
                     </li>
                     <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
-                        <form asp-action="SearchKey" asp-controller="Search" method="get" class="nav-link form-inline mt-2 mt-md-0">
+                        <form asp-action="SearchCar" asp-controller="Search" method="get" class="nav-link form-inline mt-2 mt-md-0">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="keyname" placeholder="Search" />
+                                <input type="text" class="form-control" name="carname" placeholder="Search" />
                                 <div class="input-group-append">
                                     <span class="input-group-text">
                                         <i class="mdi mdi-magnify"></i>

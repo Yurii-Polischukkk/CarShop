@@ -148,7 +148,7 @@
                                             <select class="form-select" size="3" id="models" name="models">
                                                 @foreach (var m in models)
                                                 {
-                                                    var selected = @Model.Brand == m.Name ? true : false;
+                                                    var selected = @Model.Model == m.Name ? true : false;
                                                     <!option value="@m.Name" @(selected ? "selected" : "")>@m.Name</!option>
                                                 }
                                             </select>
